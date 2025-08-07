@@ -1,0 +1,2021 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3664fe9cf3dc058f5e1f8e4bea3ebf1c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3664fe9cf3dc058f5e1f8e4bea3ebf1c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3664fe9cf3dc058f5e1f8e4bea3ebf1c = L.map(
+                "map_3664fe9cf3dc058f5e1f8e4bea3ebf1c",
+                {
+                    center: [-16.97593, 125.65725],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f2d927547deed856322d78766257f4f8 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f2d927547deed856322d78766257f4f8.addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+    
+            var poly_line_ee25d085f10543f40acf0a9a48ef384e = L.polyline(
+                [[-17.961830000000003, 122.23702000000002], [-17.92791, 122.2416], [-17.888530000000003, 122.26973000000001], [-17.88175, 122.30935000000001], [-17.85431, 122.46759000000002], [-17.845840000000003, 122.51642000000001], [-17.825560000000003, 122.55850000000001], [-17.81575, 122.66484000000001], [-17.8196, 122.73911000000001], [-17.773670000000003, 122.87759000000001], [-17.64057, 123.16668000000001], [-17.65557, 123.25898000000001], [-17.66598, 123.31952000000001], [-17.668760000000002, 123.42166000000002], [-17.67067, 123.4565], [-17.685730000000003, 123.49270000000001], [-17.72342, 123.55276], [-17.740550000000002, 123.57638000000001], [-17.738870000000002, 123.63502000000001], [-17.702840000000002, 123.67775], [-17.63868, 123.73624000000001], [-17.562510000000003, 123.74196], [-17.49998, 123.73211], [-17.47081, 123.73773000000001], [-17.44975, 123.74567], [-17.423810000000003, 123.73064000000001], [-17.36505, 123.67321000000001], [-17.311, 123.64905000000002], [-17.31011, 123.64006], [-17.317790000000002, 123.65262000000001], [-17.343780000000002, 123.66594], [-17.34672, 123.68220000000001], [-17.35367, 123.72421000000001], [-17.35657, 123.75980000000001], [-17.37573, 123.87420000000002], [-17.39318, 123.98016000000001], [-17.4117, 124.0781], [-17.44031, 124.17464000000001], [-17.461070000000003, 124.26365000000001], [-17.44142, 124.31465000000001], [-17.44322, 124.44091000000002], [-17.43586, 124.67234], [-17.39639, 124.75266], [-17.41254, 124.78611000000001], [-17.42378, 124.85469], [-17.423440000000003, 124.91037000000001], [-17.417530000000003, 124.93875000000001], [-17.422050000000002, 124.94111000000001], [-17.434160000000002, 124.98408], [-17.46162, 125.01435000000001], [-17.49865, 125.04237], [-17.5394, 125.06721000000002], [-17.56099, 125.06738000000001], [-17.57301, 125.08051], [-17.56747, 125.11404000000002], [-17.605430000000002, 125.14579], [-17.59149, 125.12713000000001], [-17.572850000000003, 125.11650000000002], [-17.562250000000002, 125.10701000000002], [-17.570490000000003, 125.08606], [-17.56634, 125.06756000000001], [-17.542150000000003, 125.06888000000001], [-17.50197, 125.04439], [-17.46514, 125.01518000000002], [-17.43654, 124.98764000000001], [-17.42367, 124.94469000000001], [-17.42237, 124.84897000000001], [-17.41054, 124.78304000000001], [-17.404580000000003, 124.7664], [-17.391070000000003, 124.75741000000001], [-17.33433, 124.82574000000001], [-17.25617, 124.86944000000001], [-17.211750000000002, 124.91459], [-17.189040000000002, 124.91609000000001], [-17.17849, 124.92885000000001], [-17.152630000000002, 124.96728000000002], [-17.15025, 125.01704000000001], [-17.1428, 125.03930000000001], [-17.147820000000003, 125.06705000000001], [-17.13071, 125.09931000000002], [-17.1168, 125.11303000000001], [-17.117600000000003, 125.13261000000001], [-17.11542, 125.16809], [-17.10961, 125.17817000000001], [-17.12369, 125.20722], [-17.14085, 125.22904000000001], [-17.137130000000003, 125.24143000000001], [-17.124480000000002, 125.24548000000001], [-17.131780000000003, 125.26028000000001], [-17.163140000000002, 125.28668], [-17.17536, 125.29352000000002], [-17.17028, 125.30054000000001], [-17.168590000000002, 125.32204000000002], [-17.16957, 125.35231000000002], [-17.15566, 125.37527000000001], [-17.14874, 125.38482], [-17.135450000000002, 125.37849000000001], [-17.11429, 125.34801000000002], [-17.10499, 125.3191], [-17.084480000000003, 125.30152000000001], [-17.077180000000002, 125.29248000000001], [-17.1092, 125.33105], [-17.118360000000003, 125.35951000000001], [-17.14448, 125.38280000000002], [-17.151960000000003, 125.41001000000001], [-17.15125, 125.44210000000001], [-17.15306, 125.48057000000001], [-17.137320000000003, 125.51734], [-17.0714, 125.57642000000001], [-17.032140000000002, 125.63261000000001], [-17.0086, 125.65740000000001], [-16.97593, 125.65725], [-16.94894, 125.67070000000001], [-16.92558, 125.68633000000001], [-16.90686, 125.74526000000002], [-16.89759, 125.78828000000001], [-16.87094, 125.82141000000001], [-16.83817, 125.85340000000001], [-16.79983, 125.8508], [-16.77981, 125.84731000000001], [-16.758460000000003, 125.86395000000002], [-16.739160000000002, 125.89547000000002], [-16.70946, 125.93571000000001], [-16.65042, 125.97166000000001], [-16.59423, 126.04343000000001], [-16.570020000000003, 126.09856], [-16.557290000000002, 126.14867000000001], [-16.52239, 126.32089], [-16.509980000000002, 126.36498000000002], [-16.47068, 126.39182000000001], [-16.43719, 126.44616], [-16.40886, 126.47813000000001], [-16.368840000000002, 126.50388000000001], [-16.27402, 126.50238000000002], [-16.24034, 126.48534000000001], [-16.19267, 126.48100000000001], [-16.12685, 126.51385], [-16.10229, 126.58664000000002], [-16.08792, 126.61832000000001], [-16.06566, 126.62579000000001], [-16.0542, 126.64990000000002], [-16.055880000000002, 126.68625000000002], [-16.05028, 126.70410000000001], [-16.01895, 126.76084000000002], [-15.995910000000002, 126.77307], [-15.98042, 126.79991000000001], [-15.953800000000001, 126.81930000000001], [-15.94898, 126.84906000000001], [-15.959850000000001, 126.89573000000001], [-15.9555, 126.91685000000001], [-15.968650000000002, 126.92803], [-15.98712, 126.94455], [-15.990140000000002, 126.99684], [-16.00382, 127.07037000000001], [-16.00262, 127.09583], [-15.985540000000002, 127.11749], [-15.959610000000001, 127.18454000000001], [-15.926530000000001, 127.22723], [-15.913480000000002, 127.24568000000001], [-15.904040000000002, 127.28139000000002], [-15.891160000000001, 127.34576000000001], [-15.859850000000002, 127.36770000000001], [-15.866890000000001, 127.38616], [-15.86198, 127.40576000000001], [-15.845450000000001, 127.41035000000001], [-15.845480000000002, 127.42352000000001], [-15.826430000000002, 127.4818], [-15.824830000000002, 127.53342], [-15.819720000000002, 127.55592000000001], [-15.80394, 127.55534000000002], [-15.789920000000002, 127.59789], [-15.778100000000002, 127.60817000000002], [-15.78334, 127.63270000000001], [-15.77016, 127.66422000000001], [-15.766630000000001, 127.71318000000001], [-15.752790000000001, 127.73884000000001], [-15.752340000000002, 127.75808], [-15.763430000000001, 127.76684000000002], [-15.779890000000002, 127.79309], [-15.768910000000002, 127.80582000000001], [-15.766940000000002, 127.81559000000001], [-15.747270000000002, 127.82121000000001], [-15.739, 127.83767000000002], [-15.77499, 127.86375000000001], [-15.82492, 127.91318000000001], [-15.846200000000001, 127.92732000000001], [-15.87071, 127.9711], [-15.882330000000001, 127.99484000000001], [-15.902870000000002, 127.99945000000001], [-15.91914, 128.01407], [-15.923380000000002, 128.03291000000002], [-15.962700000000002, 128.02819000000002], [-15.985450000000002, 128.02397000000002], [-16.00899, 128.01914000000002], [-16.00928, 127.99350000000001], [-16.01154, 127.97894000000001], [-16.01371, 128.00188], [-16.0025, 128.02385], [-15.977120000000001, 128.02585000000002], [-15.94936, 128.02967], [-15.92791, 128.03114000000002], [-15.917040000000002, 128.04758], [-15.92031, 128.0994], [-15.91684, 128.15666000000002], [-15.893620000000002, 128.20603], [-15.86776, 128.25089], [-15.85861, 128.28258000000002], [-15.843420000000002, 128.2963], [-15.834570000000001, 128.3111], [-15.84266, 128.3193], [-15.853280000000002, 128.32954], [-15.865870000000001, 128.36270000000002], [-15.867510000000001, 128.38243], [-15.834480000000001, 128.4572], [-15.799270000000002, 128.51663000000002], [-15.777870000000002, 128.57000000000002], [-15.766530000000001, 128.65896], [-15.77293, 128.67968000000002], [-15.78541, 128.67812], [-15.792510000000002, 128.69432], [-15.78621, 128.72497], [-15.778350000000001, 128.74392]],
+                {"bubblingMouseEvents": true, "color": "#007bff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#007bff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.7, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+    
+            var marker_cluster_b6a8f4e04c33135873fdf443394699bb = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_1b34f6469463000c0cd57bf551491713 = L.marker(
+                [-17.9620513, 122.2404742],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_1767ec058d9c108734e0e7f17261d7e0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4de0e7ac8345285d260ba783ee88522f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e0defe2737a0acca169abab84888bac1 = $(`<div id="html_e0defe2737a0acca169abab84888bac1" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Matso's Broome Brewery</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.1 (1326.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.35</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 67.38347505668933%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"We got a 5:30 booking for dinner. We sat out on the Deck under the fans. The food was really nice, especially the smoky crocodile kebab. We also ordered the mango beer chicken, the crispy tofu, prawn croquettes, the cheese platter, the chocolate brownie and a citrus crème brûlée. We also got jug of Hit the Toad Lager and the Ginger beer. Really helpful and efficient staff."</div>             </div>             </div>`)[0];
+                popup_4de0e7ac8345285d260ba783ee88522f.setContent(html_e0defe2737a0acca169abab84888bac1);
+            
+        
+
+        marker_1b34f6469463000c0cd57bf551491713.bindPopup(popup_4de0e7ac8345285d260ba783ee88522f)
+        ;
+
+        
+    
+    
+            marker_1b34f6469463000c0cd57bf551491713.bindTooltip(
+                `<div>
+                     Matso's Broome Brewery
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1b34f6469463000c0cd57bf551491713.setIcon(icon_1767ec058d9c108734e0e7f17261d7e0);
+            
+    
+            var marker_a39fb51aab07c45fac237ce5e3b09f89 = L.marker(
+                [-17.9600972, 122.2424889],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_63957233e86fd5207b9f90319a3ec041 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b464b61c3a3c9b1ebd0e69a08580f699 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e77c200c6e1243a35c3685bb06c08bbd = $(`<div id="html_e77c200c6e1243a35c3685bb06c08bbd" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Mangrove Hotel</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.2 (1198.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.40</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 69.9723087098087%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Did not stay here so can’t comment on the rooms. The food was great. I ordered my Plan B coffee which is cappuccino large with oat milk. One shot plan. A is a dirty Chai but a few places know how to make it properly. I did not request plan a because we were in a hurry."</div>             </div>             </div>`)[0];
+                popup_b464b61c3a3c9b1ebd0e69a08580f699.setContent(html_e77c200c6e1243a35c3685bb06c08bbd);
+            
+        
+
+        marker_a39fb51aab07c45fac237ce5e3b09f89.bindPopup(popup_b464b61c3a3c9b1ebd0e69a08580f699)
+        ;
+
+        
+    
+    
+            marker_a39fb51aab07c45fac237ce5e3b09f89.bindTooltip(
+                `<div>
+                     Mangrove Hotel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a39fb51aab07c45fac237ce5e3b09f89.setIcon(icon_63957233e86fd5207b9f90319a3ec041);
+            
+    
+            var marker_ea63e9f8cf63ce38c6f21914e950c7bd = L.marker(
+                [-17.955232, 122.24091500000002],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_faab588f6cd8abc5e5276ca88454fde2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b641e16587c34b402ff070fe4251f7c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_16b15219675b6947b16b3b1ea95835e8 = $(`<div id="html_16b15219675b6947b16b3b1ea95835e8" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">McDonald's Broome</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 3.5 (874.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.23</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 61.61964285714285%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"As a regular customer to Macdonalds I was greeted with a young inexperienced lady. Slogan was far from it.Lovin it turned quickly into not lovin it. First impression I had to refrain from bolting out the door Apart from the loud renovations the overwhelming fumes from the construction workers.The staff member unable to multitask, unprofessional, Overwhelmed with interaction  I was met with hostility. Told to use the self service a few times which I refused. Even though I was at the counter first trying to order rudely interrupted she proceeds to tell me sternly to move aside cause there are customers. Which I was bewildered. So what do I come under? 1 male customer  Was in the store. I moved aside to accommodate her She continues this cat and mouse game. I again refused no I will stay right here .I prefer to order here .I asked for management. Nothing was addressed but she did eventually take my well deserved breakfast order which at the time seemed like a simple task .I suggested further training ASAP. Front of house definitely not a fit for the staff member keep her in the back of house till she has had the proper training. Management needs to be accountable. Hope my next visit to Broome Macdonalds will be a better experience..Come to Derby for some real Country exceptional customer service etiquette."</div>             </div>             </div>`)[0];
+                popup_4b641e16587c34b402ff070fe4251f7c.setContent(html_16b15219675b6947b16b3b1ea95835e8);
+            
+        
+
+        marker_ea63e9f8cf63ce38c6f21914e950c7bd.bindPopup(popup_4b641e16587c34b402ff070fe4251f7c)
+        ;
+
+        
+    
+    
+            marker_ea63e9f8cf63ce38c6f21914e950c7bd.bindTooltip(
+                `<div>
+                     McDonald's Broome
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ea63e9f8cf63ce38c6f21914e950c7bd.setIcon(icon_faab588f6cd8abc5e5276ca88454fde2);
+            
+    
+            var marker_a2a0741f51d92a347719dbdd49c9ae4c = L.marker(
+                [-17.96622, 122.23565699999997],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_438bf40570f89cb90e34dd212a976e13 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4e6bdbd818274815b33b22fba0a7f230 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1786ab7ae6fa85217dcea591ffb25d1e = $(`<div id="html_1786ab7ae6fa85217dcea591ffb25d1e" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Oaks Broome Hotel</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 3.9 (630.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.18</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 59.181562881562876%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"We had booked a one bedroom apartment ( room 1123). It had a private patio and direct access to the big pool. There are 2 pools to choose from. The apartment was comfortable but some of the features were outdated. The kitchen had everything we needed. There is access to a laundry on site but unfortunately there are only 2 washing machines and 3 dryers that were constantly used. More machines needed for such a huge complex. It would be beneficial if they installed machines that took credit cards and sent you a txt message when your laundry was done, like some other hotels. The breakfast was basic and this could be improved. More fruit options, or vary the choices offered. The dinners were great. The staff were very professional. The town bus stop is very close to the hotel, as is the museum Roebuck bay and Matsos brewery."</div>             </div>             </div>`)[0];
+                popup_4e6bdbd818274815b33b22fba0a7f230.setContent(html_1786ab7ae6fa85217dcea591ffb25d1e);
+            
+        
+
+        marker_a2a0741f51d92a347719dbdd49c9ae4c.bindPopup(popup_4e6bdbd818274815b33b22fba0a7f230)
+        ;
+
+        
+    
+    
+            marker_a2a0741f51d92a347719dbdd49c9ae4c.bindTooltip(
+                `<div>
+                     Oaks Broome Hotel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a2a0741f51d92a347719dbdd49c9ae4c.setIcon(icon_438bf40570f89cb90e34dd212a976e13);
+            
+    
+            var marker_2e4e8e0b27895017d23ec7c10a07320e = L.marker(
+                [-17.954874999999998, 122.23873519999998],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_0769e2d68c8d4009d70393b011691780 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a20fcb20907be004f8230c48a08fea83 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_41dcf5aaa9af2463d2ba274b8f810f3b = $(`<div id="html_41dcf5aaa9af2463d2ba274b8f810f3b" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Kimberley Travellers Lodge</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bar</p>                 <p style="margin:0;"><b>Rating:</b> 4.1 (157.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.17</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 58.48338864838865%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"All the negative reviews you will have read are correct, it is noisy most of the time because the majority of the guests are backpackers who live there permanently and a small group talk loudly day and night. It is fairly clean although there are people sleeping on the sofas and people's stuff all over the place upstairs. Breakfast is adequate, the pool is wonderful, the location very convenient and the staff pleasant BUT quite impossible to sleep and no one answers the after hours number. Maybe one night if you are desperate which is a pity because it could be really nice if the permanent backpackers were more considerate."</div>             </div>             </div>`)[0];
+                popup_a20fcb20907be004f8230c48a08fea83.setContent(html_41dcf5aaa9af2463d2ba274b8f810f3b);
+            
+        
+
+        marker_2e4e8e0b27895017d23ec7c10a07320e.bindPopup(popup_a20fcb20907be004f8230c48a08fea83)
+        ;
+
+        
+    
+    
+            marker_2e4e8e0b27895017d23ec7c10a07320e.bindTooltip(
+                `<div>
+                     Kimberley Travellers Lodge
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2e4e8e0b27895017d23ec7c10a07320e.setIcon(icon_0769e2d68c8d4009d70393b011691780);
+            
+    
+            var marker_c201f4ea1e99e4c385ad6aa66c5d5962 = L.marker(
+                [-17.9559064, 122.24156490000001],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_fc3bcb2408d2e4b3c78ed92c06cbc010 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eab6640ee99993128298f3373d95c362 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77447f03c0bfc0dee3230485b39a1501 = $(`<div id="html_77447f03c0bfc0dee3230485b39a1501" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Cairo Cafe and grill Broome</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.3 (219.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.46</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 73.22293019480519%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"As someone who buys a meat box/ hsp/ AB pack in every town I pass through, I fancy myself quite the connoisseur. The HSP was bang on, chips done to perfection, meat had a beautiful smoky taste. 10/10 would highly recommend, generous portion size too. Cheers mate"</div>             </div>             </div>`)[0];
+                popup_eab6640ee99993128298f3373d95c362.setContent(html_77447f03c0bfc0dee3230485b39a1501);
+            
+        
+
+        marker_c201f4ea1e99e4c385ad6aa66c5d5962.bindPopup(popup_eab6640ee99993128298f3373d95c362)
+        ;
+
+        
+    
+    
+            marker_c201f4ea1e99e4c385ad6aa66c5d5962.bindTooltip(
+                `<div>
+                     Cairo Cafe and grill Broome
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c201f4ea1e99e4c385ad6aa66c5d5962.setIcon(icon_fc3bcb2408d2e4b3c78ed92c06cbc010);
+            
+    
+            var marker_fad5d64df6e618a55bde4a5b94efac8f = L.marker(
+                [-17.9554732, 122.24026250000001],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_96700243ffab16af084f4716e38dc549 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_53306b0a9cdbd97299cdb3a1f276135c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8039a27cf126149b7b4f8576ed6beb34 = $(`<div id="html_8039a27cf126149b7b4f8576ed6beb34" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Good Cartel</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.5 (643.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.29</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 64.5110615079365%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Used the 'drive through (a guy sitting in a little tent)'. Delicious food, we ordered a cheese burger and a Reuben sandwich... both were absolutely fantastically tasty."</div>             </div>             </div>`)[0];
+                popup_53306b0a9cdbd97299cdb3a1f276135c.setContent(html_8039a27cf126149b7b4f8576ed6beb34);
+            
+        
+
+        marker_fad5d64df6e618a55bde4a5b94efac8f.bindPopup(popup_53306b0a9cdbd97299cdb3a1f276135c)
+        ;
+
+        
+    
+    
+            marker_fad5d64df6e618a55bde4a5b94efac8f.bindTooltip(
+                `<div>
+                     Good Cartel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fad5d64df6e618a55bde4a5b94efac8f.setIcon(icon_96700243ffab16af084f4716e38dc549);
+            
+    
+            var marker_a8f27d8da67715369d4d9addcd2fe780 = L.marker(
+                [-17.954829999999998, 122.24352999999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_b148618e05e09781c81a30c62133def9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e5d56d4351b5c854391dedf533be92a7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_351b80fafaa74cadf083c4496ed33c85 = $(`<div id="html_351b80fafaa74cadf083c4496ed33c85" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Roebuck Bay Hotel</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bar</p>                 <p style="margin:0;"><b>Rating:</b> 3.8 (657.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.12</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 56.18893849206349%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Although we waited over an hour for our meal, it was absolutely delicious.  I had the mushroom linguine which was beautiful and hubby had the eye fillet which was cooked to perfection.   Staff are all super friendly.  Prices are a little high but it's Broome so expected.  All in all, no complaints, thanks Pearlers!"</div>             </div>             </div>`)[0];
+                popup_e5d56d4351b5c854391dedf533be92a7.setContent(html_351b80fafaa74cadf083c4496ed33c85);
+            
+        
+
+        marker_a8f27d8da67715369d4d9addcd2fe780.bindPopup(popup_e5d56d4351b5c854391dedf533be92a7)
+        ;
+
+        
+    
+    
+            marker_a8f27d8da67715369d4d9addcd2fe780.bindTooltip(
+                `<div>
+                     Roebuck Bay Hotel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a8f27d8da67715369d4d9addcd2fe780.setIcon(icon_b148618e05e09781c81a30c62133def9);
+            
+    
+            var marker_d6bc00b489231369dfd705af2f547099 = L.marker(
+                [-17.9634614, 122.23805289999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_a1db2e94cf3ae073677cb483d2acb583 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a4e1b15cb2df1260a6405b8067c58edb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_90551fb3630a9b2c7f63d6c8edc109bc = $(`<div id="html_90551fb3630a9b2c7f63d6c8edc109bc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">The Continental Hotel Broome</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 3.8 (343.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.35</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 67.60006331699347%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"We stayed here for 5 nights. I chose it because it was close to Chinatown and Town Beach. There was also a bus stop next door which was very handy. All the staff were very friendly and the pools are great. The food at the restaurant was a bit iffy with the breakfast fry up tasting of other foods."</div>             </div>             </div>`)[0];
+                popup_a4e1b15cb2df1260a6405b8067c58edb.setContent(html_90551fb3630a9b2c7f63d6c8edc109bc);
+            
+        
+
+        marker_d6bc00b489231369dfd705af2f547099.bindPopup(popup_a4e1b15cb2df1260a6405b8067c58edb)
+        ;
+
+        
+    
+    
+            marker_d6bc00b489231369dfd705af2f547099.bindTooltip(
+                `<div>
+                     The Continental Hotel Broome
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d6bc00b489231369dfd705af2f547099.setIcon(icon_a1db2e94cf3ae073677cb483d2acb583);
+            
+    
+            var marker_175c6659800a37d59432d6f88b9e35f8 = L.marker(
+                [-17.9549546, 122.2217764],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_5be95d22ae821aa75722e5d4efe3288f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d3fa9050782310387d854cbfa1189d55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c6d01098d0977ec8018341979fdc56e0 = $(`<div id="html_c6d01098d0977ec8018341979fdc56e0" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Broome Time Resort</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.0 (531.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.37</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 68.43626373626374%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Lovely spacious room with a private bathroom and a well equipped kitchenette. Breakfast included. Upstairs rooms have no lift, so all luggage to be carried. Great pool and guest laundry. Easy parking on site but need a car to get around. Chinatown 5min by car and Cable Beach 7min by car."</div>             </div>             </div>`)[0];
+                popup_d3fa9050782310387d854cbfa1189d55.setContent(html_c6d01098d0977ec8018341979fdc56e0);
+            
+        
+
+        marker_175c6659800a37d59432d6f88b9e35f8.bindPopup(popup_d3fa9050782310387d854cbfa1189d55)
+        ;
+
+        
+    
+    
+            marker_175c6659800a37d59432d6f88b9e35f8.bindTooltip(
+                `<div>
+                     Broome Time Resort
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_175c6659800a37d59432d6f88b9e35f8.setIcon(icon_5be95d22ae821aa75722e5d4efe3288f);
+            
+    
+            var marker_bb379a017eff2ee138d1fe244835e94b = L.marker(
+                [-17.9279929, 122.23707599999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_22d1df47776153db19b5a22bbe9491c4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d14753aca876c8f5c42d38e16088b1bd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_70f1375c3cc67731a5d6f9c89d51cb8c = $(`<div id="html_70f1375c3cc67731a5d6f9c89d51cb8c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Moontide Distillery</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bar</p>                 <p style="margin:0;"><b>Rating:</b> 4.8 (87.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.40</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 69.88454143709826%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"The Gin Masterclass was such a fun experience! I would easily go back to do this again. Bernice is amazing and encouraged us to experiment with different flavours. We all left with our own gin creation which we loved. Make sure to add this to your Broome itinerary! 🩷"</div>             </div>             </div>`)[0];
+                popup_d14753aca876c8f5c42d38e16088b1bd.setContent(html_70f1375c3cc67731a5d6f9c89d51cb8c);
+            
+        
+
+        marker_bb379a017eff2ee138d1fe244835e94b.bindPopup(popup_d14753aca876c8f5c42d38e16088b1bd)
+        ;
+
+        
+    
+    
+            marker_bb379a017eff2ee138d1fe244835e94b.bindTooltip(
+                `<div>
+                     Moontide Distillery
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bb379a017eff2ee138d1fe244835e94b.setIcon(icon_22d1df47776153db19b5a22bbe9491c4);
+            
+    
+            var marker_e06f0e8135d188df974fc352a109a720 = L.marker(
+                [-17.929281700000004, 122.23157549999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_54023b226141f8003fbaf3d8d787679c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ba42a065c4928895b64d775c2b92c8b6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_cd68fb5e283cc0b9dbf43b122ec57051 = $(`<div id="html_cd68fb5e283cc0b9dbf43b122ec57051" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">My Sweet Obsession Confectionary</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bakery</p>                 <p style="margin:0;"><b>Rating:</b> 5.0 (2.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.34</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 67.16666666666666%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Dominika made a stand out bunch of cookies for me for my private business event. She managed to even create a cookie of my logo which isn't the easiest of logos. They were delicious and one of the highlights of the evening. They were so well made, many people complimented how fantastic they were. I highly recommend these cookies for your next event!"</div>             </div>             </div>`)[0];
+                popup_ba42a065c4928895b64d775c2b92c8b6.setContent(html_cd68fb5e283cc0b9dbf43b122ec57051);
+            
+        
+
+        marker_e06f0e8135d188df974fc352a109a720.bindPopup(popup_ba42a065c4928895b64d775c2b92c8b6)
+        ;
+
+        
+    
+    
+            marker_e06f0e8135d188df974fc352a109a720.bindTooltip(
+                `<div>
+                     My Sweet Obsession Confectionary
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e06f0e8135d188df974fc352a109a720.setIcon(icon_54023b226141f8003fbaf3d8d787679c);
+            
+    
+            var marker_6344d9918e5a9e9f4d2e450624391d85 = L.marker(
+                [-17.9427554, 122.23077760000001],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_c9b3382afce871cfd030c3d1d9b9bc59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86611ced1853109df2c15c09e45af3a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9e5846288a5afc837533c80d972d6a6d = $(`<div id="html_9e5846288a5afc837533c80d972d6a6d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Wallaby Kopi</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> nan (nan reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #6c757d; font-weight:bold;">0.00</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 50.0%; background: #6c757d; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"No reviews found."</div>             </div>             </div>`)[0];
+                popup_86611ced1853109df2c15c09e45af3a1.setContent(html_9e5846288a5afc837533c80d972d6a6d);
+            
+        
+
+        marker_6344d9918e5a9e9f4d2e450624391d85.bindPopup(popup_86611ced1853109df2c15c09e45af3a1)
+        ;
+
+        
+    
+    
+            marker_6344d9918e5a9e9f4d2e450624391d85.bindTooltip(
+                `<div>
+                     Wallaby Kopi
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6344d9918e5a9e9f4d2e450624391d85.setIcon(icon_c9b3382afce871cfd030c3d1d9b9bc59);
+            
+    
+            var marker_e0ca5d350d2568f9dcb0310e1a8d2008 = L.marker(
+                [-17.30586, 123.63006779999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_f660790fda1761995b95d6f8431bbd8b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ae9c4dee32fba69e94ce449d46e0ccdd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_526f7d6b333e6141e36ad62b7fc4fb85 = $(`<div id="html_526f7d6b333e6141e36ad62b7fc4fb85" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Rustys Bakeshop</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bakery</p>                 <p style="margin:0;"><b>Rating:</b> 4.5 (14.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.40</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 69.76964285714286%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"We stopped in for a treat. Lots to choose from.  I enjoyed the lemon cake and the cinnamon rolls were delicious.  Happy to support a local bakery."</div>             </div>             </div>`)[0];
+                popup_ae9c4dee32fba69e94ce449d46e0ccdd.setContent(html_526f7d6b333e6141e36ad62b7fc4fb85);
+            
+        
+
+        marker_e0ca5d350d2568f9dcb0310e1a8d2008.bindPopup(popup_ae9c4dee32fba69e94ce449d46e0ccdd)
+        ;
+
+        
+    
+    
+            marker_e0ca5d350d2568f9dcb0310e1a8d2008.bindTooltip(
+                `<div>
+                     Rustys Bakeshop
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0ca5d350d2568f9dcb0310e1a8d2008.setIcon(icon_f660790fda1761995b95d6f8431bbd8b);
+            
+    
+            var marker_e08aa8b219f2888e86c54cae41850d7b = L.marker(
+                [-17.3203907, 123.6418075],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_6051c8c21b8624bc866ecef3d00e11dc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93bd7a365411f8c261e013002804318a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f0c1be84e3b1fb9e5081f21051e08068 = $(`<div id="html_f0c1be84e3b1fb9e5081f21051e08068" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Derby Sportsmen's Club</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bar</p>                 <p style="margin:0;"><b>Rating:</b> 4.4 (54.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.29</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 64.46354166666667%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"What a great golf course. Beautifully green with amazing boab trees across the course. Credit to the team who maintain this course - it is a little green oasis in Derby and only $20 for 9 holes."</div>             </div>             </div>`)[0];
+                popup_93bd7a365411f8c261e013002804318a.setContent(html_f0c1be84e3b1fb9e5081f21051e08068);
+            
+        
+
+        marker_e08aa8b219f2888e86c54cae41850d7b.bindPopup(popup_93bd7a365411f8c261e013002804318a)
+        ;
+
+        
+    
+    
+            marker_e08aa8b219f2888e86c54cae41850d7b.bindTooltip(
+                `<div>
+                     Derby Sportsmen's Club
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e08aa8b219f2888e86c54cae41850d7b.setIcon(icon_6051c8c21b8624bc866ecef3d00e11dc);
+            
+    
+            var marker_f316f4a96eb5537180ed6eedb208db27 = L.marker(
+                [-17.303953, 123.62725999999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_e8a0813734f43edf9024c26d3a169b1c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a1531b48536e627bee0f9a903f176f5c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_535abb71caa03d8e605089f6a3156854 = $(`<div id="html_535abb71caa03d8e605089f6a3156854" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Jila Gallery Cafe</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.6 (160.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.42</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 70.83996212121212%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"It's a true hidden gem of Derby. Charming atmosphere with the gallery embedded into the cafe. Amazing home made savoury snacks and cakes like signature tiramisu and pistachio lemon cheese cake to enjoy. Friendly service and such honest lovely people. It's a lovely spot to start the morning or chill and enjoy the vibe."</div>             </div>             </div>`)[0];
+                popup_a1531b48536e627bee0f9a903f176f5c.setContent(html_535abb71caa03d8e605089f6a3156854);
+            
+        
+
+        marker_f316f4a96eb5537180ed6eedb208db27.bindPopup(popup_a1531b48536e627bee0f9a903f176f5c)
+        ;
+
+        
+    
+    
+            marker_f316f4a96eb5537180ed6eedb208db27.bindTooltip(
+                `<div>
+                     Jila Gallery Cafe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f316f4a96eb5537180ed6eedb208db27.setIcon(icon_e8a0813734f43edf9024c26d3a169b1c);
+            
+    
+            var marker_6c834b92d1736af857578f1b44cefaa7 = L.marker(
+                [-17.3028637, 123.6272256],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_df6a6d2412c6be1d1152660f5a20613b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7b40494c05624810e689d063a206e6f6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8eb0009bcc7c286c2631e2ed4696d190 = $(`<div id="html_8eb0009bcc7c286c2631e2ed4696d190" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Derby Kebabs (Cairo Kebabs)</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.1 (80.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.38</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 68.94047619047619%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"This is the best restaurant in Derby, especially for pizza. You definitely have to try it when you're here. Also, the kebabs are great, along with the bara chips"</div>             </div>             </div>`)[0];
+                popup_7b40494c05624810e689d063a206e6f6.setContent(html_8eb0009bcc7c286c2631e2ed4696d190);
+            
+        
+
+        marker_6c834b92d1736af857578f1b44cefaa7.bindPopup(popup_7b40494c05624810e689d063a206e6f6)
+        ;
+
+        
+    
+    
+            marker_6c834b92d1736af857578f1b44cefaa7.bindTooltip(
+                `<div>
+                     Derby Kebabs (Cairo Kebabs)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6c834b92d1736af857578f1b44cefaa7.setIcon(icon_df6a6d2412c6be1d1152660f5a20613b);
+            
+    
+            var marker_b4b66e05ad773a2b727e0626399253a9 = L.marker(
+                [-17.302291099999998, 123.6275653],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_b4750163e8ec78436c45ecff228b6ca9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ce503bfc856bc1e718f20bb126ed7dde = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_53cb2ba4498cd4892e46916533b4d6f5 = $(`<div id="html_53cb2ba4498cd4892e46916533b4d6f5" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Cafe Norval</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.9 (14.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.45</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 72.68958333333333%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Fab vibe! I dropped my wallet during my visit. The staff kept it fir me.  Super dpg-friendly and laid back.  Fabulous art and muso friendly. We'll be back!"</div>             </div>             </div>`)[0];
+                popup_ce503bfc856bc1e718f20bb126ed7dde.setContent(html_53cb2ba4498cd4892e46916533b4d6f5);
+            
+        
+
+        marker_b4b66e05ad773a2b727e0626399253a9.bindPopup(popup_ce503bfc856bc1e718f20bb126ed7dde)
+        ;
+
+        
+    
+    
+            marker_b4b66e05ad773a2b727e0626399253a9.bindTooltip(
+                `<div>
+                     Cafe Norval
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b4b66e05ad773a2b727e0626399253a9.setIcon(icon_b4750163e8ec78436c45ecff228b6ca9);
+            
+    
+            var marker_c6a6c0990f0f653ceaabb8f9df53f1a9 = L.marker(
+                [-17.3053612, 123.629877],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_4816f8f5430456991072c51513d69d59 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bd7ee6c4ad7e183a0c4513a0c3341926 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_83e4ce1ce42c119ecb0a494c1447b452 = $(`<div id="html_83e4ce1ce42c119ecb0a494c1447b452" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Boab Diner</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> nan (nan reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #6c757d; font-weight:bold;">0.00</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 50.0%; background: #6c757d; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"No reviews found."</div>             </div>             </div>`)[0];
+                popup_bd7ee6c4ad7e183a0c4513a0c3341926.setContent(html_83e4ce1ce42c119ecb0a494c1447b452);
+            
+        
+
+        marker_c6a6c0990f0f653ceaabb8f9df53f1a9.bindPopup(popup_bd7ee6c4ad7e183a0c4513a0c3341926)
+        ;
+
+        
+    
+    
+            marker_c6a6c0990f0f653ceaabb8f9df53f1a9.bindTooltip(
+                `<div>
+                     Boab Diner
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c6a6c0990f0f653ceaabb8f9df53f1a9.setIcon(icon_4816f8f5430456991072c51513d69d59);
+            
+    
+            var marker_8cc59a0552496b2d20186cac11c4ea53 = L.marker(
+                [-17.3025983, 123.62631830000001],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_71c1b5d7a3e45859397b2001475662f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3b34de56c774e8dba30ca773adb8b380 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_572401aee6ac82cad5b88b8ff66020e7 = $(`<div id="html_572401aee6ac82cad5b88b8ff66020e7" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Neaps Bistro</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.2 (132.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.56</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 78.01666666666667%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"We had three visits here. Two dinners and a breakfast. The food was good to excellent. My steak was lovely and tender and my wife's arancini balls were perfect. Most importantly the coffee was excellent. The staff were mostly back packers so always interesting to chat to. It is probably the best restaurant in town."</div>             </div>             </div>`)[0];
+                popup_3b34de56c774e8dba30ca773adb8b380.setContent(html_572401aee6ac82cad5b88b8ff66020e7);
+            
+        
+
+        marker_8cc59a0552496b2d20186cac11c4ea53.bindPopup(popup_3b34de56c774e8dba30ca773adb8b380)
+        ;
+
+        
+    
+    
+            marker_8cc59a0552496b2d20186cac11c4ea53.bindTooltip(
+                `<div>
+                     Neaps Bistro
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8cc59a0552496b2d20186cac11c4ea53.setIcon(icon_71c1b5d7a3e45859397b2001475662f0);
+            
+    
+            var marker_a7c0bb15f12525ec3609dc7bd60107df = L.marker(
+                [-17.301138599999998, 123.6258996],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_11b9d480c7213528fda0e3596db9cbe4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_799fed0e77a35853f275607fd5c67ed3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d392afc034cfad93529eb69d00a4ad08 = $(`<div id="html_d392afc034cfad93529eb69d00a4ad08" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Lwoy's Chinese Restaurant</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.0 (37.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #6c757d; font-weight:bold;">0.04</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 51.93650793650794%; background: #6c757d; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Check that their opening hours are correct before wasting your time going there like I did."</div>             </div>             </div>`)[0];
+                popup_799fed0e77a35853f275607fd5c67ed3.setContent(html_d392afc034cfad93529eb69d00a4ad08);
+            
+        
+
+        marker_a7c0bb15f12525ec3609dc7bd60107df.bindPopup(popup_799fed0e77a35853f275607fd5c67ed3)
+        ;
+
+        
+    
+    
+            marker_a7c0bb15f12525ec3609dc7bd60107df.bindTooltip(
+                `<div>
+                     Lwoy's Chinese Restaurant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a7c0bb15f12525ec3609dc7bd60107df.setIcon(icon_11b9d480c7213528fda0e3596db9cbe4);
+            
+    
+            var marker_063a97fb3d4c9f66ff09f72e2bf1835b = L.marker(
+                [-16.008184, 127.98138720000001],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_1036424bc578ada8ece8aa93ff050093 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_93ffd81c5be6cec6c8158f20c0da4aec = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1b8c5308d035a342b49addd436577586 = $(`<div id="html_1b8c5308d035a342b49addd436577586" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">The Steakhouse</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 3.4 (29.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #6c757d; font-weight:bold;">0.05</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 52.273865447418075%; background: #6c757d; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Nice atmosphere in a great location, But that’s about it…  The Kimberly garlic bread was nice bread, but there was basically no garlic at all. So that was okay but a little let down.  We got two steaks and they were only just a fraction thicker than minute steak, they were both really disappointing. They also got the sides wrong on one plate.  Chips were nice, sauces were okay.  Due to the meals being the quality we changed our mind and didn’t get the line cheesecake that sounded good.  The waitress who took payment was extremely polite and asked about our experience, and we were respectful while being honest, she noted the issues down and I believe she genuinely cared about it. She removed the garlic bread from the bill which we appreciate, and the reason why it’s 2 stars, and not 1.  The pizzas across at the bar are getting great feedback so check them out!"</div>             </div>             </div>`)[0];
+                popup_93ffd81c5be6cec6c8158f20c0da4aec.setContent(html_1b8c5308d035a342b49addd436577586);
+            
+        
+
+        marker_063a97fb3d4c9f66ff09f72e2bf1835b.bindPopup(popup_93ffd81c5be6cec6c8158f20c0da4aec)
+        ;
+
+        
+    
+    
+            marker_063a97fb3d4c9f66ff09f72e2bf1835b.bindTooltip(
+                `<div>
+                     The Steakhouse
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_063a97fb3d4c9f66ff09f72e2bf1835b.setIcon(icon_1036424bc578ada8ece8aa93ff050093);
+            
+    
+            var marker_2cb64720136d21d1e7f3e5ea2fa87a65 = L.marker(
+                [-15.7921231, 128.71701769999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_08422d50ce53c97c3da51c5be6494afa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a93c313b3ca309a9e8e03878bc36a62d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4ddf589b279f28ce75bb74044105e7a4 = $(`<div id="html_4ddf589b279f28ce75bb74044105e7a4" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">PumpHouse Kununurra</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.4 (493.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.48</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 73.78590407177363%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"I recently had the pleasure of dining at the Pump House Restaurant on the stunning Foreshore of Lake Kununurra, and I can confidently say it was a great experience. From the moment we arrived, the atmosphere was warm and inviting, enhanced by the breathtaking views of the lake that truly set the stage for a memorable meal.  The menu offered a delightful array of dishes, and I was particularly impressed by the grilled scallops and the pork and fennel meatballs, both of which were cooked to perfection. The slow-cooked lamb and gnocchi were also a standout, bursting with flavor and showcasing the chef's talent. While the steak dish was a bit unexpected (referencing eye fillet, when actually it was a scotch fillet), the scotch fillet was still delicious. The chili crab pasta could have used a touch more seasoning, but once we added a bit of cut chili and salt, it transformed into a delightful dish.  Desserts were the crowning glory of our meal. The ice cream sandwich and honeycomb cheesecake received rave reviews from our table, and I can see why! Each bite was a sweet ending to an already fantastic dining experience.  What truly made our visit special, however, was the exceptional service from the international staff who were attentive and polished.  I wholeheartedly recommend the Pump House Restaurant to anyone visiting Kununurra. I can’t wait for the opportunity to return and indulge in more of their incredible offerings while soaking in those stunning views once again!"</div>             </div>             </div>`)[0];
+                popup_a93c313b3ca309a9e8e03878bc36a62d.setContent(html_4ddf589b279f28ce75bb74044105e7a4);
+            
+        
+
+        marker_2cb64720136d21d1e7f3e5ea2fa87a65.bindPopup(popup_a93c313b3ca309a9e8e03878bc36a62d)
+        ;
+
+        
+    
+    
+            marker_2cb64720136d21d1e7f3e5ea2fa87a65.bindTooltip(
+                `<div>
+                     PumpHouse Kununurra
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2cb64720136d21d1e7f3e5ea2fa87a65.setIcon(icon_08422d50ce53c97c3da51c5be6494afa);
+            
+    
+            var marker_5145cef699c161fcdbe42b97a4e63af7 = L.marker(
+                [-15.7839186, 128.712907],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_48da57008ede655f218baefb59556586 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b5693bf081ed987460750b990eb8e9a4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a65b58732e02c2cd3675b7aa079782e6 = $(`<div id="html_a65b58732e02c2cd3675b7aa079782e6" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">The Barra Bar & Cafe</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 3.0 (2.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.29</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 64.48611111111111%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"The male staff member at this coffee shop had a very poor attitude. He didn’t smile at all and was quite rude and impatient during our visit. My family and I purchased two cups of coffee and then asked for an extra cup of hot water. The first time, he only gave us half a cup. When we asked again, he said the coffee machine was turned off and there was no hot water available, even though the shop was still open. How can they make coffee without hot water? This experience was very disappointing."</div>             </div>             </div>`)[0];
+                popup_b5693bf081ed987460750b990eb8e9a4.setContent(html_a65b58732e02c2cd3675b7aa079782e6);
+            
+        
+
+        marker_5145cef699c161fcdbe42b97a4e63af7.bindPopup(popup_b5693bf081ed987460750b990eb8e9a4)
+        ;
+
+        
+    
+    
+            marker_5145cef699c161fcdbe42b97a4e63af7.bindTooltip(
+                `<div>
+                     The Barra Bar & Cafe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5145cef699c161fcdbe42b97a4e63af7.setIcon(icon_48da57008ede655f218baefb59556586);
+            
+    
+            var marker_90584f1c0e00200573c36f7d6c5b5c04 = L.marker(
+                [-15.777963499999998, 128.73335459999998],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_60763bea57ebe667f146f81bfe640fcd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8e4dd847b26ad78106e36a8cd5efc6eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2dbaa262dc47a401c5aebaf035ecbb59 = $(`<div id="html_2dbaa262dc47a401c5aebaf035ecbb59" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Kimbercrust Bakery & Top End Ice</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bakery</p>                 <p style="margin:0;"><b>Rating:</b> 4.1 (154.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.13</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 56.25476190476191%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"If you find yourself in Kununurra, make sure to stop by the Kimberley Bakery—an absolute must that should not be missed! This bakery boasts an impressive selection of cakes, pies, and an array of sandwiches and rolls.  They have seating inside, making it a perfect spot to relax out of the heat and enjoy a cup of coffee or a killer milkshake.  The bakery does get busy, but that’s a testament to its popularity. During my five or so visits, I noticed a steady stream of customers, all eager to enjoy the offerings. Don’t let the location deter you; those in the know are making the trip from the town center for a reason!  My personal favorites include the curry pies, which are bursting with flavor, and the fresh beef and salad sandwiches that are simply unbeatable. And let’s not forget the vanilla slice—an absolute must-try!  What truly sets Kimberley Bakery apart is the outstanding service. Despite the hustle and bustle, the staff remains friendly, welcoming, and engaging while you wait to be served.  In conclusion, whether you’re a local or just passing through, I highly recommend making a stop at Kimberley Bakery. With their incredible pies, sandwiches, and fresh baked goods, you won’t be disappointed. I know I’ll be back every chance I get!"</div>             </div>             </div>`)[0];
+                popup_8e4dd847b26ad78106e36a8cd5efc6eb.setContent(html_2dbaa262dc47a401c5aebaf035ecbb59);
+            
+        
+
+        marker_90584f1c0e00200573c36f7d6c5b5c04.bindPopup(popup_8e4dd847b26ad78106e36a8cd5efc6eb)
+        ;
+
+        
+    
+    
+            marker_90584f1c0e00200573c36f7d6c5b5c04.bindTooltip(
+                `<div>
+                     Kimbercrust Bakery & Top End Ice
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_90584f1c0e00200573c36f7d6c5b5c04.setIcon(icon_60763bea57ebe667f146f81bfe640fcd);
+            
+    
+            var marker_521f8a5a4049b6b1c478dc1b81e1e7e3 = L.marker(
+                [-15.7758296, 128.7392152],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_b92ed69e12bea49891a6f762d4ead6e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d0445ffbb13b2d1ac87bc286799c006 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_338262cce14666424bae9a952f45b39d = $(`<div id="html_338262cce14666424bae9a952f45b39d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Wild Mango Cafe</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.4 (293.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.35</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 67.60129220248704%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Ordered 2 toasted banana breads, my partners was good on top, darker on base but still okay, mine-top looked great, bottom was charcoal, crispy and terrible taste, raised it with staff, quick to rectify but then brought out the wrong items…  Staff were friendly, coffee was okay. Hot chocolate was nice and hot as ordered but very weak in flavour.  Place has a nice vibe but won’t be back anytime soon…"</div>             </div>             </div>`)[0];
+                popup_3d0445ffbb13b2d1ac87bc286799c006.setContent(html_338262cce14666424bae9a952f45b39d);
+            
+        
+
+        marker_521f8a5a4049b6b1c478dc1b81e1e7e3.bindPopup(popup_3d0445ffbb13b2d1ac87bc286799c006)
+        ;
+
+        
+    
+    
+            marker_521f8a5a4049b6b1c478dc1b81e1e7e3.bindTooltip(
+                `<div>
+                     Wild Mango Cafe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_521f8a5a4049b6b1c478dc1b81e1e7e3.setIcon(icon_b92ed69e12bea49891a6f762d4ead6e5);
+            
+    
+            var marker_ee156113a7840b9d42d0b4d7b5be73f0 = L.marker(
+                [-15.772982500000001, 128.74020380000002],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_95f945209103da7349aa6b01da891527 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_963733a648e5ca6a965858d460db1e5a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1ac69c28f74624df1014b8c3bf747240 = $(`<div id="html_1ac69c28f74624df1014b8c3bf747240" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Gullivers Tavern</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bar</p>                 <p style="margin:0;"><b>Rating:</b> 4.1 (213.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.49</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 74.58059334845049%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"We enjoyed a delicious meal on Fri evening, we didn’t have to wait long even though the place was crowded. The kitchen team were very good! Lovely large fans to keep guests cool. The bar staff were a bit slower at service!"</div>             </div>             </div>`)[0];
+                popup_963733a648e5ca6a965858d460db1e5a.setContent(html_1ac69c28f74624df1014b8c3bf747240);
+            
+        
+
+        marker_ee156113a7840b9d42d0b4d7b5be73f0.bindPopup(popup_963733a648e5ca6a965858d460db1e5a)
+        ;
+
+        
+    
+    
+            marker_ee156113a7840b9d42d0b4d7b5be73f0.bindTooltip(
+                `<div>
+                     Gullivers Tavern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_ee156113a7840b9d42d0b4d7b5be73f0.setIcon(icon_95f945209103da7349aa6b01da891527);
+            
+    
+            var marker_b99e40e0a8444ca45c5d1e9a3277063c = L.marker(
+                [-15.773992000000002, 128.739603],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_7b5b28932febc56e365ec97c276b4833 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0130920b1274617faddf06114c385518 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6c951a542798c489dbf7ecab14569bfa = $(`<div id="html_6c951a542798c489dbf7ecab14569bfa" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Kimberley Cafe</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.5 (200.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.41</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 70.48575837742504%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Great food, great service and great coffee. Poached eggs made to preference. Bacon cooked to perfection. Vegetarian and vegan options available. Fresh ingredients. Tasty smoothies. Absolute treat."</div>             </div>             </div>`)[0];
+                popup_0130920b1274617faddf06114c385518.setContent(html_6c951a542798c489dbf7ecab14569bfa);
+            
+        
+
+        marker_b99e40e0a8444ca45c5d1e9a3277063c.bindPopup(popup_0130920b1274617faddf06114c385518)
+        ;
+
+        
+    
+    
+            marker_b99e40e0a8444ca45c5d1e9a3277063c.bindTooltip(
+                `<div>
+                     Kimberley Cafe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b99e40e0a8444ca45c5d1e9a3277063c.setIcon(icon_7b5b28932febc56e365ec97c276b4833);
+            
+    
+            var marker_f64763935cc576641891bd94be36c0e5 = L.marker(
+                [-15.765234599999998, 128.7290534],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_13d40ae71aaa6ec3dec0d4aca877df3f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d693bd09b61e41557ced9f422057a5b3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7ab16ea2d8c3856949819c7c3e37ccdc = $(`<div id="html_7ab16ea2d8c3856949819c7c3e37ccdc" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Ivanhoe Cafe</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.3 (182.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.39</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 69.72300711951446%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Nice seating areas under big trees to protect from the sun. Service was prompt and friendly. Ordered two coffees, a breakfast poutine and the mushrooms and eggs. Coffee was good. The mushrooms and eggs were good, though it was lukewarm. The breakfast poutine was very disappointing, it also arrived lukewarm and was missing the hollandaise sauce, which I had to go and ask the confused staff for. It's also about 90% fries and had very little in the way of eggs or bacon. I certainly wouldn't order it again and to be honest it is absolutely nothing like poutine."</div>             </div>             </div>`)[0];
+                popup_d693bd09b61e41557ced9f422057a5b3.setContent(html_7ab16ea2d8c3856949819c7c3e37ccdc);
+            
+        
+
+        marker_f64763935cc576641891bd94be36c0e5.bindPopup(popup_d693bd09b61e41557ced9f422057a5b3)
+        ;
+
+        
+    
+    
+            marker_f64763935cc576641891bd94be36c0e5.bindTooltip(
+                `<div>
+                     Ivanhoe Cafe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f64763935cc576641891bd94be36c0e5.setIcon(icon_13d40ae71aaa6ec3dec0d4aca877df3f);
+            
+    
+            var marker_fca75f481f75bef6391a3a3ce64639d3 = L.marker(
+                [-15.785503299999998, 128.7360965],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_8655582221fc141b9ac5093ba2b637b9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9623adfd7509dc4f9dd592cab4c2a126 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3214b3cc370a1178c05722945064a79 = $(`<div id="html_a3214b3cc370a1178c05722945064a79" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Spilled the Beans Cafe</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.5 (107.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.30</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 64.9125%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Spilled the Beans is a groovy chili outdoor café that perfectly complements the backdrop of Van life in the Kimberley. Nestled at the entrance of Kimberleyland Holiday Park, it offers a relaxing atmosphere to enjoy a quick meal. I was particularly impressed by their iced coffee. The bacon and egg toasted sandwich was also satisfying, while the fresh muffin was a standout.  The staff were friendly and welcoming, serving everything with a smile. I loved sitting in the shade and watching the constant parade of patrons coming and going from the caravan park. A good spot for a casual morning bite, and I am told a great cup of coffee!  Also, local operators subtly display placards to spark your interest in multiple tours and activities that can be undertaken in the Kimberley region."</div>             </div>             </div>`)[0];
+                popup_9623adfd7509dc4f9dd592cab4c2a126.setContent(html_a3214b3cc370a1178c05722945064a79);
+            
+        
+
+        marker_fca75f481f75bef6391a3a3ce64639d3.bindPopup(popup_9623adfd7509dc4f9dd592cab4c2a126)
+        ;
+
+        
+    
+    
+            marker_fca75f481f75bef6391a3a3ce64639d3.bindTooltip(
+                `<div>
+                     Spilled the Beans Cafe
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fca75f481f75bef6391a3a3ce64639d3.setIcon(icon_8655582221fc141b9ac5093ba2b637b9);
+            
+    
+            var marker_a4ab98ad9d6ae15c1bb6d75db7c0b2e6 = L.marker(
+                [-15.7729996, 128.7401466],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_8f09288b48df5e2e7abe72c03fb0d2ba = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_247188bcdfac6d08bc66a64651dd2447 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f2f2b503bc577e416bb8fbaa7d924d8d = $(`<div id="html_f2f2b503bc577e416bb8fbaa7d924d8d" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Liquor Barons</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Bar</p>                 <p style="margin:0;"><b>Rating:</b> 4.3 (72.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.26</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 62.99652777777778%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"You want booze, these guys have it! Quick service, in and out. They do exactly as advertised. Thanks!"</div>             </div>             </div>`)[0];
+                popup_247188bcdfac6d08bc66a64651dd2447.setContent(html_f2f2b503bc577e416bb8fbaa7d924d8d);
+            
+        
+
+        marker_a4ab98ad9d6ae15c1bb6d75db7c0b2e6.bindPopup(popup_247188bcdfac6d08bc66a64651dd2447)
+        ;
+
+        
+    
+    
+            marker_a4ab98ad9d6ae15c1bb6d75db7c0b2e6.bindTooltip(
+                `<div>
+                     Liquor Barons
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4ab98ad9d6ae15c1bb6d75db7c0b2e6.setIcon(icon_8f09288b48df5e2e7abe72c03fb0d2ba);
+            
+    
+            var marker_029b193bc4a78ed95e9e7f164dee4e96 = L.marker(
+                [-15.774029999999998, 128.73933],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_8867306cb91c7b3849a83ea0a1d980b0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f1c4e0d3cf4b96bc4e20ef28e624e969 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8daccd03e9679ca87504282bc53b0493 = $(`<div id="html_8daccd03e9679ca87504282bc53b0493" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Subway</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.3 (107.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #6c757d; font-weight:bold;">0.07</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 53.39783526658527%; background: #6c757d; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Over going in there and the servers being down right rude unless they are flirting with someone. No hi hows it going YOU GET NOTHING it's not hard to be nice Gia and sandy super rude  thinking about giving up on this place if it WEREN'T for DANI at least she acknowledges customers the rest could take a page out of her book SORRY BUT NOT SORRY FOR THIS they may be good employees but they do not like actually serving"</div>             </div>             </div>`)[0];
+                popup_f1c4e0d3cf4b96bc4e20ef28e624e969.setContent(html_8daccd03e9679ca87504282bc53b0493);
+            
+        
+
+        marker_029b193bc4a78ed95e9e7f164dee4e96.bindPopup(popup_f1c4e0d3cf4b96bc4e20ef28e624e969)
+        ;
+
+        
+    
+    
+            marker_029b193bc4a78ed95e9e7f164dee4e96.bindTooltip(
+                `<div>
+                     Subway
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_029b193bc4a78ed95e9e7f164dee4e96.setIcon(icon_8867306cb91c7b3849a83ea0a1d980b0);
+            
+    
+            var marker_aa55628e4c6909e04c6b0349f5b0a266 = L.marker(
+                [-15.782682999999999, 128.73665499999998],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_efda9f70178b9dffad478bb5368fbf68 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d2fa33c2fb6dc4dcc95ae100a316898 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c4d9489c90dac993c48e1734e7dfb77c = $(`<div id="html_c4d9489c90dac993c48e1734e7dfb77c" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Kimberley Grande Sports Bar & Restaurant</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 3.2 (35.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #6c757d; font-weight:bold;">0.00</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 50.13816017316017%; background: #6c757d; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Kimberley grande is a sports bar with a side room that has some big group tables for dining. On our visit there wasn’t any background music playing so it was just very bright fluorescent lighting and the noise of other tables eating. It’s also dressed up to look like an italian restaurant but once you see the menu you’ll know it’s mainly parmas, a couple of pasta dishes and Korean fried chicken.  There was one vegetarian main meal option, the goats cheese and beetroot risotto, which was ok. While they have  pizza oven they don’t make pizzas anymore.  The whole place is a bit grim, but would be fine for a beer if you like a sports bar vibe."</div>             </div>             </div>`)[0];
+                popup_0d2fa33c2fb6dc4dcc95ae100a316898.setContent(html_c4d9489c90dac993c48e1734e7dfb77c);
+            
+        
+
+        marker_aa55628e4c6909e04c6b0349f5b0a266.bindPopup(popup_0d2fa33c2fb6dc4dcc95ae100a316898)
+        ;
+
+        
+    
+    
+            marker_aa55628e4c6909e04c6b0349f5b0a266.bindTooltip(
+                `<div>
+                     Kimberley Grande Sports Bar & Restaurant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aa55628e4c6909e04c6b0349f5b0a266.setIcon(icon_efda9f70178b9dffad478bb5368fbf68);
+            
+    
+            var marker_d4f6b924ae246a790dbd6ed384aa12cb = L.marker(
+                [-15.773051200000001, 128.74097079999999],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_3e5d7a5158f697f350b9b84a2c932854 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c51ceafaa206181a346f585adbb92848 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_85887396b2f7bbb80cecf3d5a9295ff2 = $(`<div id="html_85887396b2f7bbb80cecf3d5a9295ff2" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Blak Tapas Café & Catering</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Cafe</p>                 <p style="margin:0;"><b>Rating:</b> 4.9 (54.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.40</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 69.9058207070707%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"Blak Tapas Café & Catering in Kununurra is a hidden gem that offers a delightful culinary experience. From the moment you step in, the warm and inviting atmosphere makes you feel right at home. The staff are attentive and friendly, always ready to recommend dishes or accommodate special requests.  The menu is a celebration of fresh, local ingredients, with each dish thoughtfully prepared and beautifully presented. Whether you're indulging in their signature tapas or enjoying a hearty main, every bite is a testament to their commitment to quality and flavor.  For those looking to cater an event, Blak Tapas Café & Catering offers a range of options that promise to impress your guests. Their attention to detail and passion for food shine through in every service.  In summary, Blak Tapas Café & Catering is more than just a place to eat; it's a destination where food, service, and ambiance come together to create memorable dining experiences. Highly recommended for anyone visiting Kununurra."</div>             </div>             </div>`)[0];
+                popup_c51ceafaa206181a346f585adbb92848.setContent(html_85887396b2f7bbb80cecf3d5a9295ff2);
+            
+        
+
+        marker_d4f6b924ae246a790dbd6ed384aa12cb.bindPopup(popup_c51ceafaa206181a346f585adbb92848)
+        ;
+
+        
+    
+    
+            marker_d4f6b924ae246a790dbd6ed384aa12cb.bindTooltip(
+                `<div>
+                     Blak Tapas Café & Catering
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d4f6b924ae246a790dbd6ed384aa12cb.setIcon(icon_3e5d7a5158f697f350b9b84a2c932854);
+            
+    
+            var marker_0853129aec8c18adca0736c5954fe30d = L.marker(
+                [-15.7727459, 128.7390485],
+                {
+}
+            ).addTo(marker_cluster_b6a8f4e04c33135873fdf443394699bb);
+        
+    
+            var icon_078c697631e575873153a74ae8f7effd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "utensils",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cfb7c7f39a231da18343c379cdd746f3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b395804463e5b2c43787d404427a5ae4 = $(`<div id="html_b395804463e5b2c43787d404427a5ae4" style="width: 100.0%; height: 100.0%;">             <div style="font-family: sans-serif; max-width: 280px;">                 <h4 style="margin:0 0 5px 0; color:#333;">Kimberley Asian Cuisine</h4>                 <p style="margin:0 0 10px 0; font-style:italic; color:#555;">Restaurant</p>                 <p style="margin:0;"><b>Rating:</b> 4.1 (128.0 reviews)</p>                 <p style="margin:5px 0;"><b>Sentiment:</b> <span style="color: #28a745; font-weight:bold;">0.35</span></p>                 <div style="background: #e9ecef; border-radius: 5px; height: 10px; margin-top: 5px;">                     <div style="width: 67.46984126984127%; background: #28a745; height: 10px; border-radius: 5px;"></div>                 </div>                 <hr style="border:none; border-top: 1px solid #eee; margin:10px 0;">                 <p style="margin:0 0 5px 0;"><b>Top Review:</b></p>                 <div style="font-size: smaller; font-style: italic; color: #666; max-height: 60px; overflow-y: auto;">"I can see that there are a lot of very good and excellent reviews for the Asian Fusion in Kununurra, but unfortunately we cannot agree with those reviews. Maybe it was just the dishes we chose but neither my partner or I thought the food was great. The only thing to commend was the perfectly cooked steamed rice. Very disappointed!"</div>             </div>             </div>`)[0];
+                popup_cfb7c7f39a231da18343c379cdd746f3.setContent(html_b395804463e5b2c43787d404427a5ae4);
+            
+        
+
+        marker_0853129aec8c18adca0736c5954fe30d.bindPopup(popup_cfb7c7f39a231da18343c379cdd746f3)
+        ;
+
+        
+    
+    
+            marker_0853129aec8c18adca0736c5954fe30d.bindTooltip(
+                `<div>
+                     Kimberley Asian Cuisine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0853129aec8c18adca0736c5954fe30d.setIcon(icon_078c697631e575873153a74ae8f7effd);
+            
+    
+            marker_cluster_b6a8f4e04c33135873fdf443394699bb.addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+    
+            tile_layer_f2d927547deed856322d78766257f4f8.addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+    
+                marker_1b34f6469463000c0cd57bf551491713.setIcon(icon_1767ec058d9c108734e0e7f17261d7e0);
+            
+    
+                marker_a39fb51aab07c45fac237ce5e3b09f89.setIcon(icon_63957233e86fd5207b9f90319a3ec041);
+            
+    
+                marker_ea63e9f8cf63ce38c6f21914e950c7bd.setIcon(icon_faab588f6cd8abc5e5276ca88454fde2);
+            
+    
+                marker_a2a0741f51d92a347719dbdd49c9ae4c.setIcon(icon_438bf40570f89cb90e34dd212a976e13);
+            
+    
+                marker_2e4e8e0b27895017d23ec7c10a07320e.setIcon(icon_0769e2d68c8d4009d70393b011691780);
+            
+    
+                marker_c201f4ea1e99e4c385ad6aa66c5d5962.setIcon(icon_fc3bcb2408d2e4b3c78ed92c06cbc010);
+            
+    
+                marker_fad5d64df6e618a55bde4a5b94efac8f.setIcon(icon_96700243ffab16af084f4716e38dc549);
+            
+    
+                marker_a8f27d8da67715369d4d9addcd2fe780.setIcon(icon_b148618e05e09781c81a30c62133def9);
+            
+    
+                marker_d6bc00b489231369dfd705af2f547099.setIcon(icon_a1db2e94cf3ae073677cb483d2acb583);
+            
+    
+                marker_175c6659800a37d59432d6f88b9e35f8.setIcon(icon_5be95d22ae821aa75722e5d4efe3288f);
+            
+    
+                marker_bb379a017eff2ee138d1fe244835e94b.setIcon(icon_22d1df47776153db19b5a22bbe9491c4);
+            
+    
+                marker_e06f0e8135d188df974fc352a109a720.setIcon(icon_54023b226141f8003fbaf3d8d787679c);
+            
+    
+                marker_6344d9918e5a9e9f4d2e450624391d85.setIcon(icon_c9b3382afce871cfd030c3d1d9b9bc59);
+            
+    
+                marker_e0ca5d350d2568f9dcb0310e1a8d2008.setIcon(icon_f660790fda1761995b95d6f8431bbd8b);
+            
+    
+                marker_e08aa8b219f2888e86c54cae41850d7b.setIcon(icon_6051c8c21b8624bc866ecef3d00e11dc);
+            
+    
+                marker_f316f4a96eb5537180ed6eedb208db27.setIcon(icon_e8a0813734f43edf9024c26d3a169b1c);
+            
+    
+                marker_6c834b92d1736af857578f1b44cefaa7.setIcon(icon_df6a6d2412c6be1d1152660f5a20613b);
+            
+    
+                marker_b4b66e05ad773a2b727e0626399253a9.setIcon(icon_b4750163e8ec78436c45ecff228b6ca9);
+            
+    
+                marker_c6a6c0990f0f653ceaabb8f9df53f1a9.setIcon(icon_4816f8f5430456991072c51513d69d59);
+            
+    
+                marker_8cc59a0552496b2d20186cac11c4ea53.setIcon(icon_71c1b5d7a3e45859397b2001475662f0);
+            
+    
+                marker_a7c0bb15f12525ec3609dc7bd60107df.setIcon(icon_11b9d480c7213528fda0e3596db9cbe4);
+            
+    
+                marker_063a97fb3d4c9f66ff09f72e2bf1835b.setIcon(icon_1036424bc578ada8ece8aa93ff050093);
+            
+    
+                marker_2cb64720136d21d1e7f3e5ea2fa87a65.setIcon(icon_08422d50ce53c97c3da51c5be6494afa);
+            
+    
+                marker_5145cef699c161fcdbe42b97a4e63af7.setIcon(icon_48da57008ede655f218baefb59556586);
+            
+    
+                marker_90584f1c0e00200573c36f7d6c5b5c04.setIcon(icon_60763bea57ebe667f146f81bfe640fcd);
+            
+    
+                marker_521f8a5a4049b6b1c478dc1b81e1e7e3.setIcon(icon_b92ed69e12bea49891a6f762d4ead6e5);
+            
+    
+                marker_ee156113a7840b9d42d0b4d7b5be73f0.setIcon(icon_95f945209103da7349aa6b01da891527);
+            
+    
+                marker_b99e40e0a8444ca45c5d1e9a3277063c.setIcon(icon_7b5b28932febc56e365ec97c276b4833);
+            
+    
+                marker_f64763935cc576641891bd94be36c0e5.setIcon(icon_13d40ae71aaa6ec3dec0d4aca877df3f);
+            
+    
+                marker_fca75f481f75bef6391a3a3ce64639d3.setIcon(icon_8655582221fc141b9ac5093ba2b637b9);
+            
+    
+                marker_a4ab98ad9d6ae15c1bb6d75db7c0b2e6.setIcon(icon_8f09288b48df5e2e7abe72c03fb0d2ba);
+            
+    
+                marker_029b193bc4a78ed95e9e7f164dee4e96.setIcon(icon_8867306cb91c7b3849a83ea0a1d980b0);
+            
+    
+                marker_aa55628e4c6909e04c6b0349f5b0a266.setIcon(icon_efda9f70178b9dffad478bb5368fbf68);
+            
+    
+                marker_d4f6b924ae246a790dbd6ed384aa12cb.setIcon(icon_3e5d7a5158f697f350b9b84a2c932854);
+            
+    
+                marker_0853129aec8c18adca0736c5954fe30d.setIcon(icon_078c697631e575873153a74ae8f7effd);
+            
+    
+            marker_cluster_b6a8f4e04c33135873fdf443394699bb.addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+    
+            tile_layer_f2d927547deed856322d78766257f4f8.addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+    
+                marker_1b34f6469463000c0cd57bf551491713.setIcon(icon_1767ec058d9c108734e0e7f17261d7e0);
+            
+    
+                marker_a39fb51aab07c45fac237ce5e3b09f89.setIcon(icon_63957233e86fd5207b9f90319a3ec041);
+            
+    
+                marker_ea63e9f8cf63ce38c6f21914e950c7bd.setIcon(icon_faab588f6cd8abc5e5276ca88454fde2);
+            
+    
+                marker_a2a0741f51d92a347719dbdd49c9ae4c.setIcon(icon_438bf40570f89cb90e34dd212a976e13);
+            
+    
+                marker_2e4e8e0b27895017d23ec7c10a07320e.setIcon(icon_0769e2d68c8d4009d70393b011691780);
+            
+    
+                marker_c201f4ea1e99e4c385ad6aa66c5d5962.setIcon(icon_fc3bcb2408d2e4b3c78ed92c06cbc010);
+            
+    
+                marker_fad5d64df6e618a55bde4a5b94efac8f.setIcon(icon_96700243ffab16af084f4716e38dc549);
+            
+    
+                marker_a8f27d8da67715369d4d9addcd2fe780.setIcon(icon_b148618e05e09781c81a30c62133def9);
+            
+    
+                marker_d6bc00b489231369dfd705af2f547099.setIcon(icon_a1db2e94cf3ae073677cb483d2acb583);
+            
+    
+                marker_175c6659800a37d59432d6f88b9e35f8.setIcon(icon_5be95d22ae821aa75722e5d4efe3288f);
+            
+    
+                marker_bb379a017eff2ee138d1fe244835e94b.setIcon(icon_22d1df47776153db19b5a22bbe9491c4);
+            
+    
+                marker_e06f0e8135d188df974fc352a109a720.setIcon(icon_54023b226141f8003fbaf3d8d787679c);
+            
+    
+                marker_6344d9918e5a9e9f4d2e450624391d85.setIcon(icon_c9b3382afce871cfd030c3d1d9b9bc59);
+            
+    
+                marker_e0ca5d350d2568f9dcb0310e1a8d2008.setIcon(icon_f660790fda1761995b95d6f8431bbd8b);
+            
+    
+                marker_e08aa8b219f2888e86c54cae41850d7b.setIcon(icon_6051c8c21b8624bc866ecef3d00e11dc);
+            
+    
+                marker_f316f4a96eb5537180ed6eedb208db27.setIcon(icon_e8a0813734f43edf9024c26d3a169b1c);
+            
+    
+                marker_6c834b92d1736af857578f1b44cefaa7.setIcon(icon_df6a6d2412c6be1d1152660f5a20613b);
+            
+    
+                marker_b4b66e05ad773a2b727e0626399253a9.setIcon(icon_b4750163e8ec78436c45ecff228b6ca9);
+            
+    
+                marker_c6a6c0990f0f653ceaabb8f9df53f1a9.setIcon(icon_4816f8f5430456991072c51513d69d59);
+            
+    
+                marker_8cc59a0552496b2d20186cac11c4ea53.setIcon(icon_71c1b5d7a3e45859397b2001475662f0);
+            
+    
+                marker_a7c0bb15f12525ec3609dc7bd60107df.setIcon(icon_11b9d480c7213528fda0e3596db9cbe4);
+            
+    
+                marker_063a97fb3d4c9f66ff09f72e2bf1835b.setIcon(icon_1036424bc578ada8ece8aa93ff050093);
+            
+    
+                marker_2cb64720136d21d1e7f3e5ea2fa87a65.setIcon(icon_08422d50ce53c97c3da51c5be6494afa);
+            
+    
+                marker_5145cef699c161fcdbe42b97a4e63af7.setIcon(icon_48da57008ede655f218baefb59556586);
+            
+    
+                marker_90584f1c0e00200573c36f7d6c5b5c04.setIcon(icon_60763bea57ebe667f146f81bfe640fcd);
+            
+    
+                marker_521f8a5a4049b6b1c478dc1b81e1e7e3.setIcon(icon_b92ed69e12bea49891a6f762d4ead6e5);
+            
+    
+                marker_ee156113a7840b9d42d0b4d7b5be73f0.setIcon(icon_95f945209103da7349aa6b01da891527);
+            
+    
+                marker_b99e40e0a8444ca45c5d1e9a3277063c.setIcon(icon_7b5b28932febc56e365ec97c276b4833);
+            
+    
+                marker_f64763935cc576641891bd94be36c0e5.setIcon(icon_13d40ae71aaa6ec3dec0d4aca877df3f);
+            
+    
+                marker_fca75f481f75bef6391a3a3ce64639d3.setIcon(icon_8655582221fc141b9ac5093ba2b637b9);
+            
+    
+                marker_a4ab98ad9d6ae15c1bb6d75db7c0b2e6.setIcon(icon_8f09288b48df5e2e7abe72c03fb0d2ba);
+            
+    
+                marker_029b193bc4a78ed95e9e7f164dee4e96.setIcon(icon_8867306cb91c7b3849a83ea0a1d980b0);
+            
+    
+                marker_aa55628e4c6909e04c6b0349f5b0a266.setIcon(icon_efda9f70178b9dffad478bb5368fbf68);
+            
+    
+                marker_d4f6b924ae246a790dbd6ed384aa12cb.setIcon(icon_3e5d7a5158f697f350b9b84a2c932854);
+            
+    
+                marker_0853129aec8c18adca0736c5954fe30d.setIcon(icon_078c697631e575873153a74ae8f7effd);
+            
+    
+            marker_cluster_b6a8f4e04c33135873fdf443394699bb.addTo(map_3664fe9cf3dc058f5e1f8e4bea3ebf1c);
+        
+</script>
+</html>
