@@ -1,81 +1,44 @@
+
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
-  <meta charset="utf-8">
-
-  <title>Australian Roadtrip Maps Viewer</title>
-
-  <style>
-
-    body { margin: 0; font-family: sans-serif; }
-
-    #controls {
-
-      position: fixed; top: 10px; right: 10px; z-index: 1000;
-
-      background: white; padding: 10px; border-radius: 8px;
-
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-
-    }
-
-    #resetBtn {
-
-      margin-top: 6px;
-
-      background: #007bff;
-
-      color: white;
-
-      border: none;
-
-      padding: 5px 10px;
-
-      border-radius: 5px;
-
-      cursor: pointer;
-
-      font-size: 13px;
-
-    }
-
-    iframe {
-
-      width: 100%;
-
-      height: calc(100vh - 60px);
-
-      border: none;
-
-      display: none;
-
-    }
-
-    .allVisible {
-
-      display: block !important;
-
-      height: 600px;
-
-    }
-
-  </style>
-
+  <meta charset="utf-8">
+  <title>Australian Roadtrip Maps Viewer</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #controls {
+      position: fixed; top: 10px; right: 10px; z-index: 1000;
+      background: white; padding: 10px; border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    #resetBtn {
+      margin-top: 6px;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+    iframe {
+      width: 100%;
+      height: calc(100vh - 60px);
+      border: none;
+      display: none;
+    }
+    .allVisible {
+      display: block !important;
+      height: 600px;
+    }
+  </style>
 </head>
-
 <body>
 
-
-
 <div id="controls">
-
-  <label><b>Select a Roadtrip:</b></label><br>
-
-  <select id="tripDropdown">
-
+  <label><b>Select a Roadtrip:</b></label><br>
+  <select id="tripDropdown">
+    <option value="all">Show All Maps</option>
 <option value="frame_0">Adelaide to Eyre Peninsula</option>
 <option value="frame_1">Cairns to Cape York</option>
 <option value="frame_2">Cape to Cape</option>
@@ -95,11 +58,9 @@
 <option value="frame_16">South West Edge</option>
 <option value="frame_17">Tasmania's Southern Edge</option>
 <option value="frame_18">Tasmania's Western Wilds</option>
-
-  </select><br>
-  <button id="resetBtn">Reset View</button>
+  </select><br>
+  <button id="resetBtn">Reset View</button>
 </div>
-
 <iframe id="frame_0" src="Adelaide%20to%20Eyre%20Peninsula%20Map.html"></iframe>
 <iframe id="frame_1" src="Cairns%20to%20Cape%20York%20Map.html"></iframe>
 <iframe id="frame_2" src="Cape%20to%20Cape%20Map.html"></iframe>
@@ -120,84 +81,43 @@
 <iframe id="frame_17" src="Tasmania's%20Southern%20Edge%20Map.html"></iframe>
 <iframe id="frame_18" src="Tasmania's%20Western%20Wilds%20Map.html"></iframe>
 
-
-
 <script>
+  const dropdown = document.getElementById("tripDropdown");
+  const resetBtn = document.getElementById("resetBtn");
+  const frames = Array.from(document.querySelectorAll("iframe"));
 
-  const dropdown = document.getElementById("tripDropdown");
+  function updateView(val) {
+    frames.forEach(f => {
+      f.classList.remove("allVisible");
+      f.style.display = "none";
+    });
 
-  const resetBtn = document.getElementById("resetBtn");
+    if (val === "all") {
+      frames.forEach(f => {
+        f.classList.add("allVisible");
+      });
+    } else {
+      document.getElementById(val).style.display = "block";
+    }
+  }
 
-  const frames = Array.from(document.querySelectorAll("iframe"));
+  dropdown.addEventListener("change", function() {
+    updateView(this.value);
+  });
 
+  resetBtn.addEventListener("click", function() {
+    const selected = dropdown.value;
+    const frame = document.getElementById(selected);
+    if (selected === "all") {
+      frames.forEach(f => f.contentWindow.location.reload());
+    } else if (frame) {
+      frame.contentWindow.location.reload();
+    }
+  });
 
-
-  function updateView(val) {
-
-    frames.forEach(f => {
-
-      f.classList.remove("allVisible");
-
-      f.style.display = "none";
-
-    });
-
-
-
-    if (val === "all") {
-
-      frames.forEach(f => {
-
-        f.classList.add("allVisible");
-
-      });
-
-    } else {
-
-      document.getElementById(val).style.display = "block";
-
-    }
-
-  }
-
-
-
-  dropdown.addEventListener("change", function() {
-
-    updateView(this.value);
-
-  });
-
-
-
-  resetBtn.addEventListener("click", function() {
-
-    const selected = dropdown.value;
-
-    const frame = document.getElementById(selected);
-
-    if (selected === "all") {
-
-      frames.forEach(f => f.contentWindow.location.reload());
-
-    } else if (frame) {
-
-      frame.contentWindow.location.reload();
-
-    }
-
-  });
-
-
-
-  // Default to first map
-
-  updateView("frame_0");
-
+  // Default to first map
+  updateView("frame_0");
 </script>
 
-
-
 </body>
-
 </html>
