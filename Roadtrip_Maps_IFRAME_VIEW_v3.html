@@ -1,14 +1,21 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>Australian Roadtrip Maps Viewer</title>
   <style>
-    body { margin: 0; font-family: sans-serif; }
+    body { 
+      margin: 0; 
+      font-family: sans-serif; 
+    }
     #controls {
-      position: fixed; top: 10px; right: 10px; z-index: 1000;
-      background: white; padding: 10px; border-radius: 8px;
+      position: fixed; 
+      top: 10px; 
+      right: 10px; 
+      z-index: 1000;
+      background: white; 
+      padding: 10px; 
+      border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     #resetBtn {
@@ -21,16 +28,31 @@
       cursor: pointer;
       font-size: 13px;
     }
+    
+    /* --- MODIFIED CSS --- */
+
     iframe {
       width: 100%;
-      height: calc(100vh - 60px);
+      /* Default height for the single map view */
+      height: calc(100vh - 60px); 
       border: none;
-      display: none;
+      /* Hide all iframes by default */
+      display: none; 
     }
-    .allVisible {
-      display: block !important;
+    
+    /* This class simply makes an iframe visible */
+    .map-visible {
+      display: block;
+    }
+
+    /* This class styles the iframes for the stacked "Show All" view */
+    .map-stacked {
+      /* Set a fixed height for each map in the stack */
       height: 600px;
+      /* Add some space between the stacked maps */
+      margin-bottom: 20px; 
     }
+
   </style>
 </head>
 <body>
@@ -39,28 +61,29 @@
   <label><b>Select a Roadtrip:</b></label><br>
   <select id="tripDropdown">
     <option value="all">Show All Maps</option>
-<option value="frame_0">Adelaide to Eyre Peninsula</option>
-<option value="frame_1">Cairns to Cape York</option>
-<option value="frame_2">Cape to Cape</option>
-<option value="frame_3">Coastal_ Sydney - Melbourne</option>
-<option value="frame_4">Coral Coast Highway</option>
-<option value="frame_5">Epicurean Way</option>
-<option value="frame_6">Explorers Way</option>
-<option value="frame_7">Gibb River Road</option>
-<option value="frame_8">Grand Pacific Drive</option>
-<option value="frame_9">Great Barrier Reef Drive</option>
-<option value="frame_10">Great Beach Drive</option>
-<option value="frame_11">Great Ocean Road</option>
-<option value="frame_12">Heritage Highway</option>
-<option value="frame_13">Legendary Pacific Coast</option>
-<option value="frame_14">Nullarbor Plain</option>
-<option value="frame_15">Red Centre Way - Sealed Route</option>
-<option value="frame_16">South West Edge</option>
-<option value="frame_17">Tasmania's Southern Edge</option>
-<option value="frame_18">Tasmania's Western Wilds</option>
+    <option value="frame_0">Adelaide to Eyre Peninsula</option>
+    <option value="frame_1">Cairns to Cape York</option>
+    <option value="frame_2">Cape to Cape</option>
+    <option value="frame_3">Coastal_ Sydney - Melbourne</option>
+    <option value="frame_4">Coral Coast Highway</option>
+    <option value="frame_5">Epicurean Way</option>
+    <option value="frame_6">Explorers Way</option>
+    <option value="frame_7">Gibb River Road</option>
+    <option value="frame_8">Grand Pacific Drive</option>
+    <option value="frame_9">Great Barrier Reef Drive</option>
+    <option value="frame_10">Great Beach Drive</option>
+    <option value="frame_11">Great Ocean Road</option>
+    <option value="frame_12">Heritage Highway</option>
+    <option value="frame_13">Legendary Pacific Coast</option>
+    <option value="frame_14">Nullarbor Plain</option>
+    <option value="frame_15">Red Centre Way - Sealed Route</option>
+    <option value="frame_16">South West Edge</option>
+    <option value="frame_17">Tasmania's Southern Edge</option>
+    <option value="frame_18">Tasmania's Western Wilds</option>
   </select><br>
   <button id="resetBtn">Reset View</button>
 </div>
+
 <iframe id="frame_0" src="Adelaide%20to%20Eyre%20Peninsula%20Map.html"></iframe>
 <iframe id="frame_1" src="Cairns%20to%20Cape%20York%20Map.html"></iframe>
 <iframe id="frame_2" src="Cape%20to%20Cape%20Map.html"></iframe>
@@ -86,18 +109,26 @@
   const resetBtn = document.getElementById("resetBtn");
   const frames = Array.from(document.querySelectorAll("iframe"));
 
-  function updateView(val) {
-    frames.forEach(f => {
-      f.classList.remove("allVisible");
-      f.style.display = "none";
+  // --- MODIFIED JAVASCRIPT ---
+
+  function updateView(selectedValue) {
+    // First, hide all frames by removing any display classes
+    frames.forEach(frame => {
+      frame.classList.remove("map-visible", "map-stacked");
     });
 
-    if (val === "all") {
-      frames.forEach(f => {
-        f.classList.add("allVisible");
+    if (selectedValue === "all") {
+      // If "Show All" is selected, make all frames visible and apply stacked styling
+      frames.forEach(frame => {
+        // As block elements, they will stack vertically
+        frame.classList.add("map-visible", "map-stacked");
       });
     } else {
-      document.getElementById(val).style.display = "block";
+      // Otherwise, find the single selected frame and make it visible
+      const selectedFrame = document.getElementById(selectedValue);
+      if (selectedFrame) {
+        selectedFrame.classList.add("map-visible");
+      }
     }
   }
 
@@ -107,16 +138,23 @@
 
   resetBtn.addEventListener("click", function() {
     const selected = dropdown.value;
-    const frame = document.getElementById(selected);
     if (selected === "all") {
+      // Reload all map iframes
       frames.forEach(f => f.contentWindow.location.reload());
-    } else if (frame) {
-      frame.contentWindow.location.reload();
+    } else {
+      // Reload only the currently visible map
+      const frame = document.getElementById(selected);
+      if (frame) {
+        frame.contentWindow.location.reload();
+      }
     }
   });
 
-  // Default to first map
-  updateView("frame_0");
+  // Set the initial view to the first map
+  const initialMapId = "frame_0";
+  dropdown.value = initialMapId;
+  updateView(initialMapId);
+
 </script>
 
 </body>
