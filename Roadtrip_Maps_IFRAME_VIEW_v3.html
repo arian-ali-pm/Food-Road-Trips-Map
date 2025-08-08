@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,10 +26,6 @@
       border: none;
       display: none;
     }
-    .allVisible {
-      display: block !important;
-      height: 600px;
-    }
   </style>
 </head>
 <body>
@@ -38,29 +33,29 @@
 <div id="controls">
   <label><b>Select a Roadtrip:</b></label><br>
   <select id="tripDropdown">
-    <option value="all">Show All Maps</option>
-<option value="frame_0">Adelaide to Eyre Peninsula</option>
-<option value="frame_1">Cairns to Cape York</option>
-<option value="frame_2">Cape to Cape</option>
-<option value="frame_3">Coastal_ Sydney - Melbourne</option>
-<option value="frame_4">Coral Coast Highway</option>
-<option value="frame_5">Epicurean Way</option>
-<option value="frame_6">Explorers Way</option>
-<option value="frame_7">Gibb River Road</option>
-<option value="frame_8">Grand Pacific Drive</option>
-<option value="frame_9">Great Barrier Reef Drive</option>
-<option value="frame_10">Great Beach Drive</option>
-<option value="frame_11">Great Ocean Road</option>
-<option value="frame_12">Heritage Highway</option>
-<option value="frame_13">Legendary Pacific Coast</option>
-<option value="frame_14">Nullarbor Plain</option>
-<option value="frame_15">Red Centre Way - Sealed Route</option>
-<option value="frame_16">South West Edge</option>
-<option value="frame_17">Tasmania's Southern Edge</option>
-<option value="frame_18">Tasmania's Western Wilds</option>
+    <option value="frame_0">Adelaide to Eyre Peninsula</option>
+    <option value="frame_1">Cairns to Cape York</option>
+    <option value="frame_2">Cape to Cape</option>
+    <option value="frame_3">Coastal_ Sydney - Melbourne</option>
+    <option value="frame_4">Coral Coast Highway</option>
+    <option value="frame_5">Epicurean Way</option>
+    <option value="frame_6">Explorers Way</option>
+    <option value="frame_7">Gibb River Road</option>
+    <option value="frame_8">Grand Pacific Drive</option>
+    <option value="frame_9">Great Barrier Reef Drive</option>
+    <option value="frame_10">Great Beach Drive</option>
+    <option value="frame_11">Great Ocean Road</option>
+    <option value="frame_12">Heritage Highway</option>
+    <option value="frame_13">Legendary Pacific Coast</option>
+    <option value="frame_14">Nullarbor Plain</option>
+    <option value="frame_15">Red Centre Way - Sealed Route</option>
+    <option value="frame_16">South West Edge</option>
+    <option value="frame_17">Tasmania's Southern Edge</option>
+    <option value="frame_18">Tasmania's Western Wilds</option>
   </select><br>
   <button id="resetBtn">Reset View</button>
 </div>
+
 <iframe id="frame_0" src="Adelaide%20to%20Eyre%20Peninsula%20Map.html"></iframe>
 <iframe id="frame_1" src="Cairns%20to%20Cape%20York%20Map.html"></iframe>
 <iframe id="frame_2" src="Cape%20to%20Cape%20Map.html"></iframe>
@@ -87,30 +82,21 @@
   const frames = Array.from(document.querySelectorAll("iframe"));
 
   function updateView(val) {
-    frames.forEach(f => {
-      f.classList.remove("allVisible");
-      f.style.display = "none";
-    });
-
-    if (val === "all") {
-      frames.forEach(f => {
-        f.classList.add("allVisible");
-      });
-    } else {
-      document.getElementById(val).style.display = "block";
+    frames.forEach(f => f.style.display = "none");
+    const selectedFrame = document.getElementById(val);
+    if (selectedFrame) {
+      selectedFrame.style.display = "block";
     }
   }
 
-  dropdown.addEventListener("change", function() {
+  dropdown.addEventListener("change", function () {
     updateView(this.value);
   });
 
-  resetBtn.addEventListener("click", function() {
+  resetBtn.addEventListener("click", function () {
     const selected = dropdown.value;
     const frame = document.getElementById(selected);
-    if (selected === "all") {
-      frames.forEach(f => f.contentWindow.location.reload());
-    } else if (frame) {
+    if (frame) {
       frame.contentWindow.location.reload();
     }
   });
@@ -121,3 +107,4 @@
 
 </body>
 </html>
+
