@@ -52,6 +52,10 @@
     <option value="frame_16">South West Edge</option>
     <option value="frame_17">Tasmania's Southern Edge</option>
     <option value="frame_18">Tasmania's Western Wilds</option>
+    <!-- Newly added -->
+    <option value="frame_19">Savannah Way</option>
+    <option value="frame_20">The Great Alpine Road</option>
+    <option value="frame_21">The Great Eastern Drive</option>
   </select><br>
   <button id="resetBtn">Reset View</button>
 </div>
@@ -75,6 +79,10 @@
 <iframe id="frame_16" src="South%20West%20Edge%20Map.html"></iframe>
 <iframe id="frame_17" src="Tasmania's%20Southern%20Edge%20Map.html"></iframe>
 <iframe id="frame_18" src="Tasmania's%20Western%20Wilds%20Map.html"></iframe>
+<!-- Newly added iframes -->
+<iframe id="frame_19" src="Savannah%20Way%20Map.html"></iframe>
+<iframe id="frame_20" src="The%20Great%20Alpine%20Road%20Map.html"></iframe>
+<iframe id="frame_21" src="The%20Great%20Eastern%20Drive%20Map.html"></iframe>
 
 <script>
   const dropdown = document.getElementById("tripDropdown");
@@ -84,21 +92,14 @@
   function updateView(val) {
     frames.forEach(f => f.style.display = "none");
     const selectedFrame = document.getElementById(val);
-    if (selectedFrame) {
-      selectedFrame.style.display = "block";
-    }
+    if (selectedFrame) selectedFrame.style.display = "block";
   }
 
-  dropdown.addEventListener("change", function () {
-    updateView(this.value);
-  });
+  dropdown.addEventListener("change", () => updateView(dropdown.value));
 
-  resetBtn.addEventListener("click", function () {
-    const selected = dropdown.value;
-    const frame = document.getElementById(selected);
-    if (frame) {
-      frame.contentWindow.location.reload();
-    }
+  resetBtn.addEventListener("click", () => {
+    const frame = document.getElementById(dropdown.value);
+    if (frame && frame.contentWindow) frame.contentWindow.location.reload();
   });
 
   // Default to first map
@@ -107,4 +108,3 @@
 
 </body>
 </html>
-
